@@ -1,12 +1,17 @@
 import "./App.css";
+
+import { useEffect } from "react";
 import Palette from "./components/Palette";
+import { init } from "./socketApi";
 
 function App() {
+  useEffect(() => {
+    init();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <Palette />
-      </header>
+      <Palette />
     </div>
   );
 }
