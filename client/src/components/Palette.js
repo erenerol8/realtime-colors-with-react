@@ -1,10 +1,17 @@
-import React from "react";
+import { useState } from "react";
+import { send } from "../socketApi";
 
 const Palette = () => {
+  const [color, setColor] = useState("color");
   return (
     <div className="palette">
-      <input type="color"></input>
-      <button>click</button>
+      <input
+        type="color"
+        value={color}
+        onChange={(e) => setColor(e.target.value)}
+      />
+      <button onClick={() => send(color)}>click</button>
+      {color}
     </div>
   );
 };
